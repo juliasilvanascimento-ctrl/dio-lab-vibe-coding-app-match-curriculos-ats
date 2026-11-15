@@ -4,7 +4,7 @@
 
 O **Encaixa** compara o seu perfil com a descrição de uma vaga, mostra um score de match explicado (pontos fortes e lacunas) e gera uma versão do seu currículo em formato **ATS-friendly**, usando apenas informações reais do seu perfil.
 
-🔗 **Aplicação publicada:** [PREENCHER: https://seu-app.lovable.app]
+🔗 **Aplicação publicada:** [PREENCHER: [(https://encaixe-match-perfil.lovable.app )](https://encaixe-match-perfil.lovable.app )
 
 ---
 
@@ -17,11 +17,21 @@ Quem procura emprego costuma enviar o mesmo currículo para todas as vagas. Dois
 
 O Encaixa responde às duas perguntas: **"quanto eu combino com essa vaga?"** e **"como ajusto meu currículo para ela, sem mentir e sem quebrar o ATS?"**
 
+## Prévia
+
+| Landing | Perfil Mestre |
+|---|---|
+| ![Landing do Encaixa](docs/screenshots/01-landing.png) | ![Perfil Mestre](docs/screenshots/02-perfil-mestre.png) |
+
+| Match com a vaga | Currículo ajustado |
+|---|---|
+| ![Tela de match](docs/screenshots/03-match.png) | ![Currículo ATS](docs/screenshots/04-curriculo-ats.png) |
+
 ---
 
 ## 2. O prompt e como ele evoluiu
 
-O app foi gerado no **[Lovable][(https://lovable.dev)](https://encaixe-match-perfil.lovable.app ) ** a partir de um "mega prompt" em Markdown.
+O app foi gerado no **[(https://lovable.dev)](https://encaixe-match-perfil.lovable.app )** a partir de um "mega prompt" em Markdown.
 
 ### Versão 1: mega prompt único
 Um único prompt descrevia tudo: stack (React, Vite, TypeScript, Tailwind, shadcn/ui, Supabase), identidade visual, e seis áreas funcionais (landing e auth, perfil mestre, vagas, match, gerador de currículo ATS, dashboard), além do modelo de dados e regras de qualidade.
@@ -40,7 +50,6 @@ Ajustes feitos no texto para economizar créditos:
 - Paleta repetida de forma resumida na Parte 2, com a instrução de **não alterar o que já funcionava**;
 - Correções visuais agrupadas em **uma única mensagem**, em vez de vários pedidos pequenos.
 
-> A Parte 2 não foi concluída por causa do limite diário de créditos. O que ficou pendente está no [roadmap](#6-próximas-versões).
 
 ---
 
@@ -62,19 +71,7 @@ Vaga colada ────┘
 
 ---
 
-## 4. Ajustes pedidos depois da primeira geração
-
-> [PREENCHER com o que você realmente pediu ao Lovable após a primeira geração. Modelo abaixo.]
-
-| # | Ajuste pedido | Por quê |
-|---|---|---|
-| 1 | [ex.: corrigir contraste do texto sobre o amarelo] | [ex.: legibilidade/acessibilidade AA] |
-| 2 | [ex.: ajustar o layout no celular] | [ex.: telas pequenas quebravam o grid] |
-| 3 | [ex.: melhorar o prompt de reescrita do currículo] | [ex.: a IA estava genérica / exagerando] |
-
----
-
-## 5. Identidade visual
+## 4. Identidade visual
 
 Inspirada no brand design **PioneerAi**, do Unleash Studio: fundo claro esverdeado, blocos de cor chapada, tipografia pesada, bordas grossas em ameixa e motivo de blocos/pixels em degrau.
 
@@ -93,28 +90,49 @@ Tipografia: **Bricolage Grotesque** (títulos) e **Hanken Grotesk** (corpo). O d
 
 ---
 
-## 6. Próximas versões
+## 5. Próximas versões
 
-O limite de créditos por dia impediu terminar o segundo prompt de uma vez. Isso é um obstáculo real para o ritmo de desenvolvimento, e o roadmap abaixo parte dele.
+O limite de créditos por dia impediu terminar o segundo prompt de uma vez. Por isso o desenvolvimento seguirá em **versões pequenas**, com um objetivo por vez, para caber no limite diário. Itens marcados com `[x]` já foram entregues.
 
-### Prioridades
-- [ ] **Exportar o currículo também em `.docx`**, para a pessoa editar antes de enviar.
-- [ ] **Login com confirmação de e-mail**, usando o conector **Resend** para o envio.
+### v1.1: Exportar também em `.docx`
+**Por quê:** o PDF é ótimo para enviar, mas a pessoa precisa editar o currículo antes de se candidatar (trocar um detalhe, ajustar um termo).
+- [ ] Botão "Exportar .docx" ao lado do PDF
+- [ ] Mesmas regras ATS do PDF (coluna única, sem tabelas e ícones, fontes Arial/Calibri)
+- [ ] Texto 100% editável no Word e no Google Docs
 
-### Demais itens previstos no Prompt 2
-- [ ] Editor lado a lado com preview e painel de ATS score
-- [ ] Diff entre Perfil Mestre e versão gerada
-- [ ] Histórico de versões por vaga
-- [ ] Kanban de candidaturas
-- [ ] Dashboard com funil de candidaturas
+### v1.2: Login com confirmação por e-mail
+**Por quê:** hoje os dados não ficam protegidos por uma conta. Com login, cada pessoa tem seu Perfil Mestre, suas vagas e suas versões salvas.
+- [ ] Cadastro e login com e-mail e senha
+- [ ] E-mail de confirmação enviado pelo conector **Resend**
+- [ ] Recuperação de senha
+- [ ] Cada usuário vê apenas os próprios dados (RLS no Supabase)
+
+### v1.3: Editor de currículo e ATS score
+**Por quê:** hoje o currículo é gerado e exportado; falta poder revisar e entender o que mudou antes de enviar.
+- [ ] Editor lado a lado, com preview do documento
+- [ ] Painel de ATS score (palavras-chave encontradas × ausentes e checklist de boas práticas)
+- [ ] Diff entre o Perfil Mestre e a versão gerada
+- [ ] Histórico de versões por vaga, com duplicar e restaurar
+
+### v2.0: Acompanhamento de candidaturas
+**Por quê:** quem se candidata a várias vagas precisa saber onde cada uma está.
+- [ ] Kanban (Salva, Candidatando, Enviada, Entrevista, Oferta, Encerrada)
+- [ ] Notas e datas por candidatura
+- [ ] Dashboard com resumo e funil de candidaturas
+- [ ] Sugestões de próximos passos (ex.: vagas com match alto sem currículo gerado)
+
+### Ideias para depois
+- [ ] Importar a vaga por URL, além de colar o texto
+- [ ] Versões do currículo em outros idiomas
+- [ ] Modo escuro completo
 
 ---
 
-## 7. Stack
+## 6. Stack
 
 React · Vite · TypeScript · Tailwind CSS · shadcn/ui · Supabase (Auth, Postgres, Storage, Edge Functions) · Lovable AI
 
-## 8. Rodando localmente
+## 7. Rodando localmente
 
 ```bash
 git clone [PREENCHER: URL do repositório]
@@ -124,6 +142,6 @@ cp .env.example .env   # preencha com as chaves do seu projeto Supabase
 npm run dev
 ```
 
-## 9. Créditos
+## 8. Créditos
 
 Identidade visual inspirada no projeto *Brand design for PioneerAi*, do **Unleash Studio**. Este repositório é um projeto independente e não tem vínculo com a marca original.
