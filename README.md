@@ -19,13 +19,17 @@ O Encaixa responde às duas perguntas: **"quanto eu combino com essa vaga?"** e 
 
 ## Prévia
 
-| Landing | Perfil Mestre |
+| Landing | Login |
 |---|---|
-| ![Landing do Encaixa](docs/screenshots/01-landing.png) | ![Perfil Mestre](docs/screenshots/02-perfil-mestre.png) |
+| ![Landing do Encaixa](docs/screenshots/01-landing.png) | ![Tela de login](docs/screenshots/05-login.png) |
 
-| Match com a vaga | Currículo ajustado |
+| Perfil Mestre | Lista de vagas |
 |---|---|
-| ![Tela de match](docs/screenshots/03-match.png) | ![Currículo ATS](docs/screenshots/04-curriculo-ats.png) |
+| ![Perfil Mestre](docs/screenshots/02-perfil-mestre.png) | ![Lista de vagas](docs/screenshots/04-curriculo-ats.png) |
+
+| Nova vaga | Match com a vaga |
+|---|---|
+| ![Cadastro de nova vaga](docs/screenshots/06-nova-vaga.png) | ![Tela de match](docs/screenshots/03-match.png) |
 
 ---
 
